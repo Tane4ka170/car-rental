@@ -1,7 +1,11 @@
 import React from "react";
 
 const Catalog = () => {
-  return <div>Catalog</div>;
+  return (
+    <div>
+      <h1>Catalog</h1>
+    </div>
+  );
 };
 
 export default Catalog;
