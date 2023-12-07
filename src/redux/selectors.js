@@ -1,0 +1,9 @@
+export const selectCars = (state) => state.cars.carsData;
+export const selectId = (state) => state.cars.id;
+export const selectLoading = (state) => state.cars.isLoading;
+export const selectError = (state) => state.cars.error;
+export const selectAllCars = (state) => state.cars.allCars;
+export const selectFilter = (state) => state.cars.filter;
+export const selectHasMorePages = (state) => state.cars.hasMorePages;
+export const selectModalOpen = (state) => state.cars.isModalOpen;
+export const selectSelectedCar = (state) => state.cars.selectedCar;
