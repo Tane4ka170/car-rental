@@ -154,7 +154,7 @@ const CatalogList = () => {
                       <img src={car.img || noCar} alt={car.make} />
 
                       <svg
-                        $active={isFavorite || like === index}
+                        $like={isFavorite || like === index}
                         onClick={() => toggleFavoritesHandler(car, index)}
                       >
                         <path
