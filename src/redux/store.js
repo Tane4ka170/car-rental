@@ -13,7 +13,6 @@ import {
 } from "redux-persist";
 import { carReducer } from "./sliceCar";
 import { favoriteReducer } from "./sliceFavorites";
-// import { favoriteReducer } from "./favoriteReducer";
 
 const carsPersistConfig = {
   key: "cars",

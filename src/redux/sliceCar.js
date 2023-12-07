@@ -1,24 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit"
-import { getAllCarThunk, getCarThunk } from "./operations"
+import { createSlice } from "@reduxjs/toolkit";
+import { getAllCarThunk, getCarThunk } from "./operations";
 
 const initialState = {
-    carsData: [],
+  carsInfo: [],
   id: null,
   isLoading: false,
   error: null,
   allCars: [],
   filter: { make: "", price: 0, mileageFrom: 0, mileageTo: 0 },
-  hasMorePages: true,
+  morePages: true,
   isModalOpen: false,
   selectedCar: null,
-}
+};
 
 const sliceCar = createSlice({
-    name: 'cars',
-    initialState,
- reducers: {
+  name: "cars",
+  initialState,
+  reducers: {
     setCars: (state, action) => {
-      state.carsData = action.payload;
+      state.carsInfo = action.payload;
     },
     setId: (state, action) => {
       state.id = action.payload;
@@ -35,10 +35,10 @@ const sliceCar = createSlice({
     setFilter: (state, action) => {
       state.filter = action.payload;
     },
-    setHasMorePages: (state, action) => {
-      state.hasMorePages = action.payload;
+    setMorePages: (state, action) => {
+      state.morePages = action.payload;
     },
-    setModalOpen: (state, action) => {
+    setOpenModal: (state, action) => {
       state.isModalOpen = action.payload;
     },
     setSelectedCar: (state, action) => {
@@ -53,7 +53,8 @@ const sliceCar = createSlice({
       })
       .addCase(getCarThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.carsData = action.payload;
+        state.carsInfo = action.payload;
+        state.morePages = action.payload.length > 0;
       })
       .addCase(getCarThunk.rejected, (state, action) => {
         state.isLoading = false;
@@ -72,7 +73,7 @@ const sliceCar = createSlice({
         state.error = action.payload;
       });
   },
-})
+});
 
 export const carReducer = sliceCar.reducer;
 export const {
@@ -82,7 +83,7 @@ export const {
   setError,
   setAllCars,
   setFilter,
-  setHasMorePages,
-  setModalOpen,
+  setmorePages,
+  setOpenModal,
   setSelectedCar,
 } = sliceCar.actions;
