@@ -10,7 +10,7 @@ import brands from "../../service/makes.json";
 
 const Forms = () => {
   const [brand, setBrand] = useState("");
-  const [price, setPrice] = useState("");
+  const [setPrice] = useState("");
   const [fromValue, setFromValue] = useState("");
   const [toValue, setToValue] = useState("");
   const dispatch = useDispatch();
@@ -59,7 +59,7 @@ const Forms = () => {
       <div>
         <label htmlFor="pricePerHour">Price/ 1 hour</label>
         <select name="price" onChange={handlePriceChange}>
-          <option value="">To $</option>
+          <option>To $</option>
           {optionsPrice.map((price, index) => (
             <option key={index} value={price}>
               {price + " $"}
