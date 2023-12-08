@@ -27,7 +27,7 @@ export const HeroSection = styled.section`
     position: relative;
     z-index: 1;
     padding: 50px 20px;
-    color: white;
+    color: #cabeb8;
     font-size: 36px;
     line-height: 1.5;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -37,7 +37,7 @@ export const HeroSection = styled.section`
 // Services section
 export const ServicesSection = styled.section`
   padding: 40px 0;
-  background-color: #cabeb8;
+  background-color: #909597;
 `;
 
 export const ServicesContainer = styled.div`
@@ -50,7 +50,7 @@ export const ServicesHeading = styled.h2`
   font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
-  color: #4c4b50;
+  color: #755546;
 `;
 
 export const ServicesList = styled.div`
@@ -60,7 +60,7 @@ export const ServicesList = styled.div`
 `;
 
 export const ServiceItem = styled.div`
-  background-color: #cabeb8;
+  background-color: #100d0b
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -73,31 +73,31 @@ export const ServiceItem = styled.div`
   svg {
     width: 50px;
     height: 50px;
-    fill: #909597;
+    fill: #515552;
   }
 
   p {
     font-size: 14px;
-    color: #4c4b50;
+    color: #100d0b;
   }
 `;
 // Rental Section;
 export const RentalSection = styled.section`
   padding: 40px 20px;
-  background-color: #909597;
+  background-color: #7c8088;
 `;
 export const RentalHeading = styled.h2`
   font-size: 24px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
-  color: #452613;
+  color: #bb3843;
 `;
 
 export const RentalText = styled.p`
   font-size: 16px;
   line-height: 1.5;
-  color: #100d0b;
+  color: #452613;
   margin-bottom: 20px;
 `;
 
@@ -111,7 +111,7 @@ export const RentalList = styled.ul`
     align-items: center;
     font-size: 16px;
     line-height: 1.5;
-    color: #ffffff;
+    color: #404145;
     margin-bottom: 10px;
 
     div {
@@ -121,20 +121,20 @@ export const RentalList = styled.ul`
       justify-content: center;
       width: 24px;
       height: 24px;
-      border: 2px solid #bb3843;
+      border: 2px solid #cabeb8;
       border-radius: 50%;
     }
 
     svg {
       width: 18px;
       height: 18px;
-      fill: #bb3843;
+      fill: #909597;
     }
   }
 `;
 
 export const RentalBenefits = styled.div`
-  background-color: #b37f0b;
+  background-color: #755546;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -142,14 +142,14 @@ export const RentalBenefits = styled.div`
   h3 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #282927;
+    color: #100d0b;
     text-align: center;
   }
 
   p {
     font-size: 16px;
     line-height: 1.5;
-    color: #444442;
+    color: #cabeb8;
     margin-bottom: 20px;
   }
 
@@ -161,27 +161,27 @@ export const RentalBenefits = styled.div`
     li {
       font-size: 16px;
       line-height: 1.5;
-      color: #080608;
+      color: #452613;
       margin-bottom: 15px;
       display: flex;
       align-items: center;
 
       div {
         margin-right: 10px;
-        color: #6c6c6c;
+        color: #515552;
         display: flex;
         align-items: center;
         justify-content: center;
         width: 24px;
         height: 24px;
-        background-color: #ecf0f1;
+        background-color: #7c8088;
         border-radius: 50%;
       }
 
       svg {
         width: 18px;
         height: 18px;
-        fill: #ba1f2a;
+        fill: #bb3843;
       }
     }
   }
@@ -189,20 +189,20 @@ export const RentalBenefits = styled.div`
 
 export const AdditionalFeaturesSection = styled.div`
   padding: 20px;
-  background-color: #4f1d02;
+  background-color: #404145;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Додавання тіні */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   h3 {
     font-size: 1.5em;
-    color: #5d584f;
+    color: #cabeb8;
     text-align: center;
     margin-bottom: 20px;
   }
 
   p {
     margin-bottom: 15px;
-    color: #cfcdd1;
+    color: #909597;
   }
 
   ul {
@@ -214,22 +214,22 @@ export const AdditionalFeaturesSection = styled.div`
       margin-bottom: 10px;
       display: flex;
       align-items: center;
-      color: #cfcdd1;
+      color: #100d0b;
 
       div {
         margin-right: 10px;
-        color: #9c9293;
+        color: #755546;
         display: flex;
         align-items: center;
         justify-content: center;
         width: 24px;
         height: 24px;
-        background-color: #b37f0b;
+        background-color: #515552;
         border-radius: 50%;
       }
 
       svg {
-        fill: #282927;
+        fill: #7c8088;
       }
     }
   }
@@ -237,19 +237,19 @@ export const AdditionalFeaturesSection = styled.div`
 
 export const BusinessDurationSection = styled.div`
   padding: 20px;
-  background-color: #444442;
+  background-color: #cabeb8;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   h3 {
     font-size: 1.5em;
-    color: #080608;
+    color: #bb3843;
     margin-bottom: 20px;
     text-align: center;
   }
 
   p {
     margin-bottom: 15px;
-    color: #6c6c6c;
+    color: #452613;
   }
 `;

@@ -18,6 +18,20 @@ import noCar from "../../images/noCar.webp";
 import LoadMore from "../LoadMore/LoadMore";
 import { toast } from "react-toastify";
 import Modal from "../Modal/Modal";
+import {
+  AddictionalInfoDiv,
+  CarDiv,
+  CarDivMainInfo,
+  CarImgContainer,
+  CarLi,
+  CarListContainer,
+  CarListUl,
+  Img,
+  LearnMore,
+  Like,
+  Paragraph,
+  Span,
+} from "./CatalogList.styled";
 
 const CatalogList = () => {
   const [like, setLike] = useState(null);
@@ -86,8 +100,8 @@ const CatalogList = () => {
   };
 
   return (
-    <div>
-      <ul>
+    <CarListContainer>
+      <CarListUl>
         {filterValue || carsPrice || mileageFrom || mileageTo
           ? filteredCarsMap.map((car, index) => {
               const isFavorite = favorites.some(
@@ -100,42 +114,46 @@ const CatalogList = () => {
 
               return (
                 <div key={`filtered-car-wrapper-${index}`}>
-                  <div key={`${car.id}-${index}`}>
-                    <li key={`${car.id}-${index}`}>
-                      <div>
-                        <img src={car.img || noCar} alt={car.make} />
+                  <CarDiv key={`${car.id}-${index}`}>
+                    <CarLi key={`${car.id}-${index}`}>
+                      <CarImgContainer>
+                        <Img src={car.img || noCar} alt={car.make} />
 
-                        <svg
-                          $active={isFavorite || like === index}
+                        <Like
+                          $like={isFavorite || like === index}
                           onClick={() => toggleFavoritesHandler(car, index)}
                         >
                           <path
+                            stroke="white"
+                            strokeOpacity="0.8"
+                            strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            strokeWidth="2.667"
                             d="M27.787 6.147a7.345 7.345 0 0 0-5.187-2.15 7.33 7.33 0 0 0-5.187 2.15L16 7.56l-1.413-1.413a7.333 7.333 0 0 0-10.374 0 7.333 7.333 0 0 0 0 10.374L16 28.308l11.787-11.787a7.345 7.345 0 0 0 2.15-5.187 7.33 7.33 0 0 0-2.15-5.187z"
                           />
-                        </svg>
-                      </div>
-                      <div>
+                        </Like>
+                      </CarImgContainer>
+                      <CarDivMainInfo>
                         <p>
-                          {car.make} <span>{car.model}</span>, {car.year}
+                          {car.make} <Span>{car.model}</Span>, {car.year}
                         </p>
                         <p>{car.rentalPrice}</p>
-                      </div>
-                      <div>
-                        <p>{beforeLastWord}</p>
-                        <p>{lastWord}</p>
-                        <p>{car.rentalCompany}</p>
-                        <p>{car.type}</p>
-                        <p>{car.make}</p>
-                        <p>{car.mileage}</p>
-                        <p>{car.accessories[0]}</p>
-                      </div>
+                      </CarDivMainInfo>
+                      <AddictionalInfoDiv>
+                        <Paragraph>{beforeLastWord}</Paragraph>
+                        <Paragraph>{lastWord}</Paragraph>
+                        <Paragraph>{car.rentalCompany}</Paragraph>
+                        <Paragraph>{car.type}</Paragraph>
+                        <Paragraph>{car.make}</Paragraph>
+                        <Paragraph>{car.mileage}</Paragraph>
+                        <Paragraph>{car.accessories[0]}</Paragraph>
+                      </AddictionalInfoDiv>
 
-                      <button onClick={() => isOpen(car)}>Learn more</button>
-                    </li>
-                  </div>
+                      <LearnMore onClick={() => isOpen(car)}>
+                        Learn more
+                      </LearnMore>
+                    </CarLi>
+                  </CarDiv>
                 </div>
               );
             })
@@ -148,48 +166,52 @@ const CatalogList = () => {
                 (favCar) => favCar.id === car.id
               );
               return (
-                <div key={`${car.id}-${index}`}>
-                  <li key={`${car.id}-${index}`}>
-                    <div>
-                      <img src={car.img || noCar} alt={car.make} />
+                <CarDiv key={`${car.id}-${index}`}>
+                  <CarLi key={`${car.id}-${index}`}>
+                    <CarImgContainer>
+                      <Img src={car.img || noCar} alt={car.make} />
 
-                      <svg
+                      <Like
                         $like={isFavorite || like === index}
                         onClick={() => toggleFavoritesHandler(car, index)}
                       >
                         <path
+                          stroke="white"
+                          strokeOpacity="0.8"
+                          strokeWidth="1.5"
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          strokeWidth="2.667"
                           d="M27.787 6.147a7.345 7.345 0 0 0-5.187-2.15 7.33 7.33 0 0 0-5.187 2.15L16 7.56l-1.413-1.413a7.333 7.333 0 0 0-10.374 0 7.333 7.333 0 0 0 0 10.374L16 28.308l11.787-11.787a7.345 7.345 0 0 0 2.15-5.187 7.33 7.33 0 0 0-2.15-5.187z"
                         />
-                      </svg>
-                    </div>
-                    <div>
+                      </Like>
+                    </CarImgContainer>
+                    <CarDivMainInfo>
                       <p>
-                        {car.make} <span>{car.model}</span>, {car.year}
+                        {car.make} <Span>{car.model}</Span>, {car.year}
                       </p>
                       <p>{car.rentalPrice}</p>
-                    </div>
-                    <div>
-                      <p>{beforeLastWord}</p>
-                      <p>{lastWord}</p>
-                      <p>{car.rentalCompany}</p>
-                      <p>{car.type}</p>
-                      <p>{car.make}</p>
-                      <p>{car.mileage}</p>
-                      <p>{car.accessories[0]}</p>
-                    </div>
+                    </CarDivMainInfo>
+                    <AddictionalInfoDiv>
+                      <Paragraph>{beforeLastWord}</Paragraph>
+                      <Paragraph>{lastWord}</Paragraph>
+                      <Paragraph>{car.rentalCompany}</Paragraph>
+                      <Paragraph>{car.type}</Paragraph>
+                      <Paragraph>{car.make}</Paragraph>
+                      <Paragraph>{car.mileage}</Paragraph>
+                      <Paragraph>{car.accessories[0]}</Paragraph>
+                    </AddictionalInfoDiv>
 
-                    <button onClick={() => isOpen(car)}>Learn more</button>
-                  </li>
-                </div>
+                    <LearnMore onClick={() => isOpen(car)}>
+                      Learn more
+                    </LearnMore>
+                  </CarLi>
+                </CarDiv>
               );
             })}
-      </ul>
+      </CarListUl>
       <LoadMore />
       {isModalOpen && <Modal isClosed={isClosed} selectedCar={selectedCar} />}
-    </div>
+    </CarListContainer>
   );
 };
 
