@@ -17,30 +17,24 @@ const sliceCar = createSlice({
   name: "cars",
   initialState,
   reducers: {
-    setCars: (state, action) => {
-      state.carsInfo = action.payload;
-    },
-    setId: (state, action) => {
-      state.id = action.payload;
-    },
-    setLoading: (state, action) => {
-      state.isLoading = action.payload;
-    },
-    setError: (state, action) => {
-      state.error = action.payload;
-    },
-    setAllCars: (state, action) => {
-      state.allCars = action.payload;
-    },
     setFilter: (state, action) => {
-      state.filter = action.payload;
+      state.filter.make = action.payload;
+    },
+    setPriceFilter: (state, action) => {
+      state.filter.price = Number(action.payload);
+    },
+    setMileageFrom: (state, action) => {
+      state.filter.mileageFrom = Number(action.payload);
+    },
+    setMileageTo: (state, action) => {
+      state.filter.mileageTo = Number(action.payload);
     },
     setMorePages: (state, action) => {
       state.morePages = action.payload;
     },
     setOpenModal: (state, action) => {
-      state.isModalOpen = action.payload;
-    },
+  state.isModalOpen = action.payload;
+},
     setSelectedCar: (state, action) => {
       state.selectedCar = action.payload;
     },
@@ -52,9 +46,12 @@ const sliceCar = createSlice({
         state.error = null;
       })
       .addCase(getCarThunk.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.carsInfo = action.payload;
-        state.morePages = action.payload.length > 0;
+         state.isLoading = false;
+        state.error = null;
+        state.carsInfo.push(...action.payload);
+        if (action.payload.length === 0) {
+          state.morePages = false;
+        }
       })
       .addCase(getCarThunk.rejected, (state, action) => {
         state.isLoading = false;
@@ -66,6 +63,7 @@ const sliceCar = createSlice({
       })
       .addCase(getAllCarThunk.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.error = null;
         state.allCars = action.payload;
       })
       .addCase(getAllCarThunk.rejected, (state, action) => {
@@ -83,7 +81,10 @@ export const {
   setError,
   setAllCars,
   setFilter,
-  setmorePages,
+  setMorePages,
   setOpenModal,
   setSelectedCar,
+  setPriceFilter,
+  setMileageFrom,
+  setMileageTo,
 } = sliceCar.actions;
