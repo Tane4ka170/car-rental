@@ -4,6 +4,27 @@ import { selectOpenModal } from "../../redux/selectors";
 import { setOpenModal } from "../../redux/sliceCar";
 import noCar from "../../images/noCar.webp";
 import sprite from "../../images/sprite.svg";
+import {
+  AccessoriesContainer,
+  AccessoriesSpan,
+  AccessoriesTitle,
+  Backdrop,
+  CarDescription,
+  CarDetails,
+  CarProperty,
+  CloseButton,
+  ModalContainer,
+  RentalConditionItem,
+  RentalConditionsDetails,
+  RentalConditionsDiv,
+  RentalConditionsList,
+  RentalConditionsTitle,
+} from "./Modal.styled";
+import {
+  CarDivMainInfo,
+  CarImgContainer,
+  CarLi,
+} from "../CalalogList/CatalogList.styled";
 
 const Modal = ({ selectedCar, index, beforeLastWord, lastWord }) => {
   const dispatch = useDispatch();
@@ -62,91 +83,103 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord }) => {
   };
 
   return (
-    <div onClick={handleBackDropClick}>
-      <div>
+    <Backdrop onClick={handleBackDropClick}>
+      <Modal>
         {isModalOpen && selectedCar && (
           <>
-            <div>
-              <li key={`${selectedCar.id}-${index}`}>
-                <div>
+            <ModalContainer>
+              <CarLi key={`${selectedCar.id}-${index}`}>
+                <CarImgContainer>
                   <img src={selectedCar.img || noCar} alt={selectedCar.make} />
-                </div>
-                <div>
+                </CarImgContainer>
+                <CarDivMainInfo>
                   <p>
                     {selectedCar.make} <span> {selectedCar.model}</span>,{" "}
                     {selectedCar.year}
                   </p>
-                </div>
+                </CarDivMainInfo>
 
-                <div>
-                  <p>
+                <CarDetails>
+                  <CarProperty>
                     {
                       selectedCar.address.split(" ")[
                         selectedCar.address.split(" ").length - 2
                       ]
                     }
-                  </p>
-                  <p>
+                  </CarProperty>
+                  <CarProperty>
                     {
                       selectedCar.address.split(" ")[
                         selectedCar.address.split(" ").length - 1
                       ]
                     }
-                  </p>
-                  <p>id: {selectedCar.id}</p>
-                  <p>Year: {selectedCar.year}</p>
-                  <p>Type: {selectedCar.type}</p>
-                  <p>Fuel consumption: {selectedCar.fuelConsumption}</p>
-                  <p>Engine size: {selectedCar.engineSize}</p>
-                </div>
+                  </CarProperty>
+                  <CarProperty>id: {selectedCar.id}</CarProperty>
+                  <CarProperty>Year: {selectedCar.year}</CarProperty>
+                  <CarProperty>Type: {selectedCar.type}</CarProperty>
+                  <CarProperty>
+                    Fuel consumption: {selectedCar.fuelConsumption}
+                  </CarProperty>
+                  <CarProperty>
+                    Engine size: {selectedCar.engineSize}
+                  </CarProperty>
+                </CarDetails>
 
-                <p>{selectedCar.description}</p>
+                <CarDescription>{selectedCar.description}</CarDescription>
 
+                <AccessoriesContainer>
+                  <AccessoriesTitle>
+                    Accessories and functionalities:
+                  </AccessoriesTitle>
+                  <AccessoriesSpan>
+                    {selectedCar.accessories.join(" | ")}
+                  </AccessoriesSpan>
+                  <AccessoriesSpan>
+                    {selectedCar.functionalities.join(" | ")}
+                  </AccessoriesSpan>
+                </AccessoriesContainer>
                 <div>
-                  <p>Accessories and functionalities:</p>
-                  <span>{selectedCar.accessories.join(" | ")}</span>
-                  <span>{selectedCar.functionalities.join(" | ")}</span>
-                </div>
-                <div>
-                  <ul>
-                    <p>Rental conditions:</p>
-                    <div>
+                  <RentalConditionsList>
+                    <RentalConditionsTitle>
+                      Rental conditions:
+                    </RentalConditionsTitle>
+                    <RentalConditionsDiv>
                       {selectedCar.rentalConditions
                         .split("\n")
                         .map((condition, index) => (
-                          <li key={index}>
+                          <RentalConditionItem key={index}>
                             {highlightRentalConditions(condition)}
-                          </li>
+                          </RentalConditionItem>
                         ))}
-                    </div>
+                    </RentalConditionsDiv>
 
-                    <div>
-                      <li>
+                    <RentalConditionsDetails>
+                      <RentalConditionItem>
                         Price:{" "}
                         <span>
                           {selectedCar.rentalPrice.replace("$", "") + "$"}
                         </span>
-                      </li>
-                      <li>
+                      </RentalConditionItem>
+                      <RentalConditionItem>
                         Mileage: <span>{selectedCar.mileage}</span>
-                      </li>
-                    </div>
-                  </ul>
+                      </RentalConditionItem>
+                    </RentalConditionsDetails>
+                  </RentalConditionsList>
                 </div>
                 <div>
                   <button onClick={handleRentalBtnClick}>Rental car</button>
                 </div>
-              </li>
-            </div>
+              </CarLi>
+            </ModalContainer>
           </>
         )}
-        <button onClick={closeModal}>
+        <CloseButton onClick={closeModal}>
           <svg width="18" height="18">
             <use href={`${sprite}#icon-close`} />
           </svg>
-        </button>
-      </div>
-    </div>
+        </CloseButton>
+      </Modal>
+    </Backdrop>
   );
 };
 
