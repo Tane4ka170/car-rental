@@ -33,8 +33,8 @@ const sliceCar = createSlice({
       state.morePages = action.payload;
     },
     setOpenModal: (state, action) => {
-  state.isModalOpen = action.payload;
-},
+      state.isModalOpen = action.payload;
+    },
     setSelectedCar: (state, action) => {
       state.selectedCar = action.payload;
     },
@@ -46,7 +46,7 @@ const sliceCar = createSlice({
         state.error = null;
       })
       .addCase(getCarThunk.fulfilled, (state, action) => {
-         state.isLoading = false;
+        state.isLoading = false;
         state.error = null;
         state.carsInfo.push(...action.payload);
         if (action.payload.length === 0) {

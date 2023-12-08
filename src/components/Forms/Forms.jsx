@@ -10,7 +10,7 @@ import brands from "../../service/makes.json";
 
 const Forms = () => {
   const [brand, setBrand] = useState("");
-  const [setPrice] = useState("");
+  const [price, setPrice] = useState("");
   const [fromValue, setFromValue] = useState("");
   const [toValue, setToValue] = useState("");
   const dispatch = useDispatch();
