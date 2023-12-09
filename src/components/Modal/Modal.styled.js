@@ -9,9 +9,9 @@ export const Backdrop = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
   z-index: 5;
-`
-export const Modal = styled.div`
-position: fixed;
+`;
+export const ModalWindow = styled.div`
+  position: fixed;
   width: 541px;
   height: 790px;
   border-radius: 24px;
@@ -24,36 +24,36 @@ position: fixed;
   padding-right: 40px;
   border: 1px solid #ccc;
   z-index: 7;
-`
+`;
 
 export const ModalContainer = styled.div`
-display: flex;
+  display: flex;
   margin-top: -35px;
-`
+`;
 
 export const CarImage = styled.img`
-object-fit: cover;
+  object-fit: cover;
   width: 469px;
   height: 248px;
   border-radius: 14px;
   margin-bottom: 10px;
   margin-top: 30px;
-`
+`;
 export const SpanModal = styled.span`
-font-family: Montserrat;
+  font-family: Montserrat;
   font-weight: 600;
   color: #3470ff;
-`
+`;
 export const CarDetails = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
   width: 360px;
   margin-bottom: 14px;
-`
+`;
 export const CarProperty = styled.p`
-color: rgba(18, 20, 23, 0.5);
+  color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -64,10 +64,11 @@ color: rgba(18, 20, 23, 0.5);
     content: "\u00a0";
   }
 
-  border-right: 1px solid rgba(18, 20, 23, 0.1);`
+  border-right: 1px solid rgba(18, 20, 23, 0.1);
+`;
 
 export const CarDescription = styled.p`
-color: rgba(18, 20, 23, 0.5);
+  color: rgba(18, 20, 23, 0.5);
 
   font-size: 10px;
   font-style: normal;
@@ -84,32 +85,32 @@ color: rgba(18, 20, 23, 0.5);
   &:not(:last-child) {
     border-right: none;
   }
-`
+`;
 
 export const AccessoriesContainer = styled.div`
-width: 340px;
+  width: 340px;
   margin-bottom: 24px;
-`
+`;
 
 export const AccessoriesTitle = styled.p`
- margin-bottom: 8px;
+  margin-bottom: 8px;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-`
+`;
 
 export const AccessoriesSpan = styled.span`
-color: rgba(18, 20, 23, 0.5);
+  color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
   padding-right: 6px;
-`
+`;
 export const RentalConditionsList = styled.ul`
-padding-left: 0px;
-`
+  padding-left: 0px;
+`;
 
 export const RentalConditionsTitle = styled.p`
   margin-bottom: 14px;
@@ -120,13 +121,13 @@ export const RentalConditionsTitle = styled.p`
 `;
 
 export const RentalConditionsDiv = styled.div`
-display: flex;
+  display: flex;
   gap: 8px;
   padding-left: 0px;
   margin-bottom: 8px;
-`
+`;
 export const RentalConditionItem = styled.li`
-padding: 7px 14px;
+  padding: 7px 14px;
   gap: 8px;
   border-radius: 35px;
 
@@ -140,15 +141,16 @@ padding: 7px 14px;
   span {
     color: #3470ff !important;
   }
-`
+`;
 
 export const RentalConditionsDetails = styled.div`
-display: flex;
+  display: flex;
   gap: 8px;
-  margin-bottom: 24px;`
+  margin-bottom: 24px;
+`;
 
 export const RentalButton = styled.button`
-padding: 12px 50px;
+  padding: 12px 50px;
   width: 168px;
   font-size: 14px;
   font-style: normal;
@@ -159,13 +161,14 @@ padding: 12px 50px;
 
   color: #fff;
   background: #3470ff;
-`
+`;
 
 export const CloseButton = styled.button`
-position: absolute;
+  position: absolute;
   top: 6px;
   right: 6px;
   padding: 10px;
   background: transparent;
   border: none;
-`
+  background: white;
+`;

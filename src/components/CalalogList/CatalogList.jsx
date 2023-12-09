@@ -32,6 +32,7 @@ import {
   Paragraph,
   Span,
 } from "./CatalogList.styled";
+import sprite from "../../images/sprite.svg";
 
 const CatalogList = () => {
   const [like, setLike] = useState(null);
@@ -120,17 +121,12 @@ const CatalogList = () => {
                         <Img src={car.img || noCar} alt={car.make} />
 
                         <Like
+                          width="18"
+                          height="18"
                           $like={isFavorite || like === index}
                           onClick={() => toggleFavoritesHandler(car, index)}
                         >
-                          <path
-                            stroke="white"
-                            strokeOpacity="0.8"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M27.787 6.147a7.345 7.345 0 0 0-5.187-2.15 7.33 7.33 0 0 0-5.187 2.15L16 7.56l-1.413-1.413a7.333 7.333 0 0 0-10.374 0 7.333 7.333 0 0 0 0 10.374L16 28.308l11.787-11.787a7.345 7.345 0 0 0 2.15-5.187 7.33 7.33 0 0 0-2.15-5.187z"
-                          />
+                          <use href={`${sprite}#icon-heart`} />
                         </Like>
                       </CarImgContainer>
                       <CarDivMainInfo>
@@ -172,17 +168,12 @@ const CatalogList = () => {
                       <Img src={car.img || noCar} alt={car.make} />
 
                       <Like
+                        width="18"
+                        height="18"
                         $like={isFavorite || like === index}
                         onClick={() => toggleFavoritesHandler(car, index)}
                       >
-                        <path
-                          stroke="white"
-                          strokeOpacity="0.8"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M27.787 6.147a7.345 7.345 0 0 0-5.187-2.15 7.33 7.33 0 0 0-5.187 2.15L16 7.56l-1.413-1.413a7.333 7.333 0 0 0-10.374 0 7.333 7.333 0 0 0 0 10.374L16 28.308l11.787-11.787a7.345 7.345 0 0 0 2.15-5.187 7.33 7.33 0 0 0-2.15-5.187z"
-                        />
+                        <use href={`${sprite}#icon-heart`} />
                       </Like>
                     </CarImgContainer>
                     <CarDivMainInfo>

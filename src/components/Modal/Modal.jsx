@@ -14,6 +14,7 @@ import {
   CarProperty,
   CloseButton,
   ModalContainer,
+  ModalWindow,
   RentalButton,
   RentalConditionItem,
   RentalConditionsDetails,
@@ -88,7 +89,7 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
 
   return (
     <Backdrop onClick={handleBackDropClick}>
-      <Modal>
+      <ModalWindow>
         {isModalOpen && (
           <>
             <ModalContainer>
@@ -107,7 +108,6 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
                     {selectedCar?.year}
                   </p>
                 </CarDivMainInfo>
-
                 <CarDetails>
                   <CarProperty>
                     {
@@ -133,9 +133,7 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
                     Engine size: {selectedCar?.engineSize}
                   </CarProperty>
                 </CarDetails>
-
                 <CarDescription>{selectedCar?.description}</CarDescription>
-
                 <AccessoriesContainer>
                   <AccessoriesTitle>
                     Accessories and functionalities:
@@ -161,7 +159,6 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
                           </RentalConditionItem>
                         ))}
                     </RentalConditionsDiv>
-
                     <RentalConditionsDetails>
                       <RentalConditionItem>
                         Price:{" "}
@@ -189,7 +186,7 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
             <use href={`${sprite}#icon-close`} />
           </svg>
         </CloseButton>
-      </Modal>
+      </ModalWindow>
     </Backdrop>
   );
 };
