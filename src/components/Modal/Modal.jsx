@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectOpenModal } from "../../redux/selectors";
 import { setOpenModal } from "../../redux/sliceCar";
@@ -45,7 +45,12 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
     }
   };
 
-  document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+  useEffect(() => {
+    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isModalOpen]);
   document.addEventListener("keydown", onEscClose);
 
   const handleBackDropClick = (e) => {

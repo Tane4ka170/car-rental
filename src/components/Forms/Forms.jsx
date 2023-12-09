@@ -7,94 +7,81 @@ import {
   setPriceFilter,
 } from "../../redux/sliceCar";
 import brands from "../../service/makes.json";
-import { FormDiv, Label, SelectBrand } from "./Forms.styled";
+import {
+  ButtonContainer,
+  Container,
+  Form,
+  FormDiv,
+  Input,
+  InputDiv,
+  Label,
+  SearchButton,
+  SelectBrand,
+  SelectPrice,
+} from "./Forms.styled";
+import { useForm } from "react-hook-form";
 
 const Forms = () => {
-  const [brand, setBrand] = useState("");
-  const [price, setPrice] = useState("");
-  const [fromValue, setFromValue] = useState("");
-  const [toValue, setToValue] = useState("");
+  const { register, handleSubmit, control } = useForm();
   const dispatch = useDispatch();
 
-  const handleCarChange = (event) => {
-    setBrand(event.target.value);
-  };
-  const handlePriceChange = (event) => {
-    setPrice(event.target.value);
-  };
-  const handleFromChange = (event) => {
-    setFromValue(event.target.value);
-  };
-  const handleToChange = (event) => {
-    setToValue(event.target.value);
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(setFilter(event.target.elements.brand.value));
-    dispatch(setPriceFilter(event.target.elements.price.value));
-    dispatch(setMileageFrom(event.target.elements.from.value));
-    dispatch(setMileageTo(event.target.elements.to.value));
+  const onSubmit = (data) => {
+    dispatch(setFilter(data.brand));
+    dispatch(setPriceFilter(data.price));
+    dispatch(setMileageFrom(data.from));
+    dispatch(setMileageTo(data.to));
   };
 
-  const makePriceOptions = () => {
-    const optionsArray = [];
-    for (let i = 10; i < 500; i += 10) {
-      optionsArray.push(i);
-    }
-    return optionsArray;
-  };
-  const optionsPrice = makePriceOptions();
   return (
-    <form onSubmit={handleSubmit}>
-      <FormDiv>
-        <Label htmlFor="carBrand">Car brand</Label>
-        <SelectBrand name="brand" onChange={handleCarChange}>
-          <option value={brand}>Enter the text</option>
-          {brands.map((brand, index) => (
-            <option value={brand} key={index}>
-              {brand}
-            </option>
-          ))}
-        </SelectBrand>
-
-        <div>
-          <Label htmlFor="pricePerHour">Price/ 1 hour</Label>
-          <select name="price" onChange={handlePriceChange}>
-            <option>To $</option>
-            {optionsPrice.map((price, index) => (
-              <option key={index} value={price}>
-                {price + " $"}
+    <Container>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <FormDiv>
+          <Label htmlFor="carBrand">Car brand</Label>
+          <SelectBrand {...register("brand")} defaultValue="">
+            <option value="">Enter the text</option>
+            {brands.map((brand, index) => (
+              <option value={brand} key={index}>
+                {brand}
               </option>
             ))}
-          </select>
-        </div>
-        <div>
+          </SelectBrand>
+        </FormDiv>
+        <FormDiv>
+          <Label htmlFor="pricePerHour">Price/ 1 hour</Label>
+          <SelectPrice {...register("price")}>
+            <option value="">To $</option>
+            {[...Array(50)].map((_, index) => (
+              <option key={index} value={(index + 1) * 10}>
+                {(index + 1) * 10 + " $"}
+              </option>
+            ))}
+          </SelectPrice>
+        </FormDiv>
+        <FormDiv>
           <Label>Car mileage / km</Label>
-          <div>
-            <input
+          <InputDiv>
+            <Input
+              {...register("from")}
               name="from"
               placeholder="From"
               type="text"
-              onChange={handleFromChange}
-              value={fromValue}
               maxLength={8}
             />
-            <input
+            <Input
+              {...register("to")}
               name="to"
               placeholder="To"
               type="text"
-              onChange={handleToChange}
-              value={toValue}
               maxLength={8}
             />
-          </div>
-        </div>
+          </InputDiv>
+        </FormDiv>
 
-        <div>
-          <button type="submit">Search</button>
-        </div>
-      </FormDiv>
-    </form>
+        <ButtonContainer>
+          <SearchButton type="submit">Search</SearchButton>
+        </ButtonContainer>
+      </Form>
+    </Container>
   );
 };
 
