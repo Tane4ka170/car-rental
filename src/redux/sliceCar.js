@@ -81,10 +81,10 @@ export const {
   setError,
   setAllCars,
   setFilter,
-  setMorePages,
-  setOpenModal,
-  setSelectedCar,
   setPriceFilter,
   setMileageFrom,
   setMileageTo,
+  setMorePages,
+  setOpenModal,
+  setSelectedCar,
 } = sliceCar.actions;

@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import Select from "react-select";
 import { useDispatch } from "react-redux";
 import {
   setFilter,
@@ -16,60 +18,114 @@ import {
   InputDiv,
   Label,
   SearchButton,
-  SelectBrand,
-  SelectPrice,
 } from "./Forms.styled";
-import { useForm } from "react-hook-form";
+
+const customStyles = {
+  control: (provided, state) => ({
+    ...provided,
+    padding: "14px 16px 14px 18px ",
+    boxShadow: "none",
+    border: "none",
+    borderRadius: "14px",
+    backgroundColor: "#F7F7FB",
+  }),
+  placeholder: (provided, state) => ({
+    ...provided,
+    color: "#121417",
+    fontFamily: "Manrope",
+    fontSize: "18px",
+    fontStyle: "normal",
+    fontWeight: 500,
+    lineHeight: "20px",
+  }),
+  singleValue: (provided, state) => ({
+    ...provided,
+    color: "#171612",
+    fontFamily: "Manrope",
+    fontSize: "18px",
+    fontStyle: "normal",
+    fontWeight: 500,
+    lineHeight: "20px",
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: "#ffffff",
+    color: "rgba(18, 20, 23, 0.20)",
+  }),
+};
 
 const Forms = () => {
-  const { register, handleSubmit, control } = useForm();
+  const { control, register, handleSubmit } = useForm();
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    dispatch(setFilter(data.brand));
-    dispatch(setPriceFilter(data.price));
+    dispatch(setFilter(data.brand.value));
+    dispatch(setPriceFilter(data.price?.value));
     dispatch(setMileageFrom(data.from));
     dispatch(setMileageTo(data.to));
   };
+
+  const makePriceOptions = () => {
+    const optionsArray = [];
+    for (let i = 10; i < 500; i += 10) {
+      optionsArray.push({ value: i, label: `${i} $` });
+    }
+    return optionsArray;
+  };
+
+  const optionsPrice = makePriceOptions();
+
+  const brandOptions = brands.map((brand, index) => ({
+    value: brand,
+    label: brand,
+  }));
 
   return (
     <Container>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormDiv>
           <Label htmlFor="carBrand">Car brand</Label>
-          <SelectBrand {...register("brand")} defaultValue="">
-            <option value="">Enter the text</option>
-            {brands.map((brand, index) => (
-              <option value={brand} key={index}>
-                {brand}
-              </option>
-            ))}
-          </SelectBrand>
+          <Controller
+            name="brand"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={brandOptions}
+                placeholder="Enter the text"
+                styles={customStyles}
+              />
+            )}
+          />
         </FormDiv>
         <FormDiv>
           <Label htmlFor="pricePerHour">Price/ 1 hour</Label>
-          <SelectPrice {...register("price")}>
-            <option value="">To $</option>
-            {[...Array(50)].map((_, index) => (
-              <option key={index} value={(index + 1) * 10}>
-                {(index + 1) * 10 + " $"}
-              </option>
-            ))}
-          </SelectPrice>
+          <Controller
+            name="price"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={optionsPrice}
+                placeholder="To $"
+                styles={customStyles}
+              />
+            )}
+          />
         </FormDiv>
         <FormDiv>
           <Label>Car mileage / km</Label>
           <InputDiv>
             <Input
               {...register("from")}
-              name="from"
               placeholder="From"
               type="text"
               maxLength={8}
             />
             <Input
               {...register("to")}
-              name="to"
               placeholder="To"
               type="text"
               maxLength={8}
