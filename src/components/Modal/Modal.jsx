@@ -14,6 +14,7 @@ import {
   CarProperty,
   CloseButton,
   ModalContainer,
+  RentalButton,
   RentalConditionItem,
   RentalConditionsDetails,
   RentalConditionsDiv,
@@ -26,18 +27,20 @@ import {
   CarLi,
 } from "../CalalogList/CatalogList.styled";
 
-const Modal = ({ selectedCar, index, beforeLastWord, lastWord }) => {
+const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
   const dispatch = useDispatch();
 
   const isModalOpen = useSelector(selectOpenModal);
 
   const closeModal = useCallback(() => {
     dispatch(setOpenModal(false));
-  }, [dispatch]);
+    isClosed();
+  }, [dispatch, isClosed]);
 
   const onEscClose = (e) => {
     if (e.key === "Escape") {
       dispatch(setOpenModal(false));
+      isClosed();
     }
   };
 
@@ -47,6 +50,7 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord }) => {
   const handleBackDropClick = (e) => {
     if (e.currentTarget === e.target) {
       dispatch(setOpenModal(false));
+      isClosed();
     }
   };
 
@@ -85,57 +89,62 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord }) => {
   return (
     <Backdrop onClick={handleBackDropClick}>
       <Modal>
-        {isModalOpen && selectedCar && (
+        {isModalOpen && (
           <>
             <ModalContainer>
-              <CarLi key={`${selectedCar.id}-${index}`}>
+              <CarLi key={`${selectedCar?.id}-${index}`}>
                 <CarImgContainer>
-                  <img src={selectedCar.img || noCar} alt={selectedCar.make} />
+                  {selectedCar && (
+                    <img
+                      src={selectedCar?.img || noCar}
+                      alt={selectedCar?.make}
+                    />
+                  )}
                 </CarImgContainer>
                 <CarDivMainInfo>
                   <p>
-                    {selectedCar.make} <span> {selectedCar.model}</span>,{" "}
-                    {selectedCar.year}
+                    {selectedCar?.make} <span> {selectedCar?.model}</span>,{" "}
+                    {selectedCar?.year}
                   </p>
                 </CarDivMainInfo>
 
                 <CarDetails>
                   <CarProperty>
                     {
-                      selectedCar.address.split(" ")[
-                        selectedCar.address.split(" ").length - 2
+                      selectedCar?.address.split(" ")[
+                        selectedCar?.address.split(" ").length - 2
                       ]
                     }
                   </CarProperty>
                   <CarProperty>
                     {
-                      selectedCar.address.split(" ")[
-                        selectedCar.address.split(" ").length - 1
+                      selectedCar?.address.split(" ")[
+                        selectedCar?.address.split(" ").length - 1
                       ]
                     }
                   </CarProperty>
-                  <CarProperty>id: {selectedCar.id}</CarProperty>
-                  <CarProperty>Year: {selectedCar.year}</CarProperty>
-                  <CarProperty>Type: {selectedCar.type}</CarProperty>
+                  <CarProperty>id: {selectedCar?.id}</CarProperty>
+                  <CarProperty>Year: {selectedCar?.year}</CarProperty>
+                  <CarProperty>Type: {selectedCar?.type}</CarProperty>
                   <CarProperty>
-                    Fuel consumption: {selectedCar.fuelConsumption}
+                    Fuel consumption: {selectedCar?.fuelConsumption}
                   </CarProperty>
                   <CarProperty>
-                    Engine size: {selectedCar.engineSize}
+                    Engine size: {selectedCar?.engineSize}
                   </CarProperty>
                 </CarDetails>
 
-                <CarDescription>{selectedCar.description}</CarDescription>
+                <CarDescription>{selectedCar?.description}</CarDescription>
 
                 <AccessoriesContainer>
                   <AccessoriesTitle>
                     Accessories and functionalities:
                   </AccessoriesTitle>
                   <AccessoriesSpan>
-                    {selectedCar.accessories.join(" | ")}
+                    {selectedCar?.accessories.join(" | ")}
                   </AccessoriesSpan>
                   <AccessoriesSpan>
-                    {selectedCar.functionalities.join(" | ")}
+                    {selectedCar?.functionalities.join(" | ")}
                   </AccessoriesSpan>
                 </AccessoriesContainer>
                 <div>
@@ -144,7 +153,7 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord }) => {
                       Rental conditions:
                     </RentalConditionsTitle>
                     <RentalConditionsDiv>
-                      {selectedCar.rentalConditions
+                      {selectedCar?.rentalConditions
                         .split("\n")
                         .map((condition, index) => (
                           <RentalConditionItem key={index}>
@@ -157,17 +166,19 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord }) => {
                       <RentalConditionItem>
                         Price:{" "}
                         <span>
-                          {selectedCar.rentalPrice.replace("$", "") + "$"}
+                          {selectedCar?.rentalPrice.replace("$", "") + "$"}
                         </span>
                       </RentalConditionItem>
                       <RentalConditionItem>
-                        Mileage: <span>{selectedCar.mileage}</span>
+                        Mileage: <span>{selectedCar?.mileage}</span>
                       </RentalConditionItem>
                     </RentalConditionsDetails>
                   </RentalConditionsList>
                 </div>
                 <div>
-                  <button onClick={handleRentalBtnClick}>Rental car</button>
+                  <RentalButton onClick={handleRentalBtnClick}>
+                    Rental car
+                  </RentalButton>
                 </div>
               </CarLi>
             </ModalContainer>

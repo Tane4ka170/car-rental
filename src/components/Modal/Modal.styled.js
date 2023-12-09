@@ -8,7 +8,7 @@ export const Backdrop = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  z-index: 900;
+  z-index: 5;
 `
 export const Modal = styled.div`
 position: fixed;
@@ -23,7 +23,7 @@ position: fixed;
   padding-left: 33px;
   padding-right: 40px;
   border: 1px solid #ccc;
-  z-index: 10000;
+  z-index: 7;
 `
 
 export const ModalContainer = styled.div`

@@ -92,7 +92,7 @@ const CatalogList = () => {
 
   const isOpen = (car) => {
     dispatch(setSelectedCar(car));
-    dispatch(setOpenModal({ isOpen: true, selectedCar: car }));
+    dispatch(setOpenModal(true));
   };
 
   const isClosed = () => {
