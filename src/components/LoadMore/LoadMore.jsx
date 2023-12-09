@@ -6,6 +6,7 @@ import {
   selectMorePages,
 } from "../../redux/selectors";
 import { getCarThunk } from "../../redux/operations";
+import { LoadMoreButton, LoadMoreContainer } from "./LoadMore.styled";
 
 const LoadMore = () => {
   const dispatch = useDispatch();
@@ -23,13 +24,13 @@ const LoadMore = () => {
   const hideButton = !morePages || cars.length < 1 || allCars.length < 1;
 
   return (
-    <div>
+    <LoadMoreContainer>
       {!hideButton && (
-        <button type="button" onClick={handleLoadMore}>
+        <LoadMoreButton type="button" onClick={handleLoadMore}>
           Load More
-        </button>
+        </LoadMoreButton>
       )}
-    </div>
+    </LoadMoreContainer>
   );
 };
 
