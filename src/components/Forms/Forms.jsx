@@ -58,11 +58,18 @@ const Forms = () => {
   const { control, register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
+  const formatMileage = (mileage) => {
+    return Number(mileage).toLocaleString();
+  };
+
   const onSubmit = (data) => {
+    const formattedFrom = formatMileage(data.from);
+    const formattedTo = formatMileage(data.to);
+
     dispatch(setFilter(data.brand.value));
     dispatch(setPriceFilter(data.price?.value));
-    dispatch(setMileageFrom(data.from));
-    dispatch(setMileageTo(data.to));
+    dispatch(setMileageFrom(data.from.replace(/\D/g, "")));
+    dispatch(setMileageTo(data.to.replace(/\D/g, "")));
     reset();
   };
 
@@ -120,13 +127,25 @@ const Forms = () => {
           <Label>Car mileage / km</Label>
           <InputDiv>
             <Input
-              {...register("from")}
+              {...register("from", {
+                onChange: (e) => {
+                  e.target.value = e.target.value
+                    .replace(/\D/g, "")
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                },
+              })}
               placeholder="From"
               type="text"
               maxLength={8}
             />
             <Input
-              {...register("to")}
+              {...register("to", {
+                onChange: (e) => {
+                  e.target.value = e.target.value
+                    .replace(/\D/g, "")
+                    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+                },
+              })}
               placeholder="To"
               type="text"
               maxLength={8}
