@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { selectOpenModal } from "../../redux/selectors";
 import { setOpenModal } from "../../redux/sliceCar";
-import noCar from "../../images/noCar.webp";
-import sprite from "../../images/sprite.svg";
+
 import {
   AccessoriesContainer,
   AccessoriesSpan,
@@ -28,6 +28,8 @@ import {
   CarImgContainer,
   CarLi,
 } from "../CalalogList/CatalogList.styled";
+import noCar from "../../images/noCar.webp";
+import sprite from "../../images/sprite.svg";
 
 const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
   const dispatch = useDispatch();

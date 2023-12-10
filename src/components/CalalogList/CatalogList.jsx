@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+
 import {
   selectAllCars,
   selectCars,
@@ -16,8 +18,8 @@ import { setOpenModal, setSelectedCar } from "../../redux/sliceCar";
 
 import noCar from "../../images/noCar.webp";
 import LoadMore from "../LoadMore/LoadMore";
-import { toast } from "react-toastify";
 import Modal from "../Modal/Modal";
+
 import {
   AddictionalInfoDiv,
   CarDiv,

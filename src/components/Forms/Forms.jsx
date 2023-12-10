@@ -2,13 +2,16 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import { useDispatch } from "react-redux";
+
 import {
   setFilter,
   setMileageFrom,
   setMileageTo,
   setPriceFilter,
 } from "../../redux/sliceCar";
+
 import brands from "../../service/makes.json";
+
 import {
   ButtonContainer,
   Container,
@@ -58,14 +61,7 @@ const Forms = () => {
   const { control, register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
-  const formatMileage = (mileage) => {
-    return Number(mileage).toLocaleString();
-  };
-
   const onSubmit = (data) => {
-    const formattedFrom = formatMileage(data.from);
-    const formattedTo = formatMileage(data.to);
-
     dispatch(setFilter(data.brand.value));
     dispatch(setPriceFilter(data.price?.value));
     dispatch(setMileageFrom(data.from.replace(/\D/g, "")));

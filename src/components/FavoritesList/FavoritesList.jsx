@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   selectFavorites,
   selectOpenModal,
@@ -7,9 +8,10 @@ import {
 } from "../../redux/selectors";
 import { removeFromFavorites, setFavorites } from "../../redux/sliceFavorites";
 import { setOpenModal, setSelectedCar } from "../../redux/sliceCar";
-import noCar from "../../images/noCar.webp";
+
 import LoadMore from "../LoadMore/LoadMore";
 import Modal from "../Modal/Modal";
+
 import { FavoritesContainer, NoFavoritesMessage } from "./FavoritesList.styled";
 import {
   AddictionalInfoDiv,
@@ -23,6 +25,7 @@ import {
   Paragraph,
   Span,
 } from "../CalalogList/CatalogList.styled";
+import noCar from "../../images/noCar.webp";
 import sprite from "../../images/sprite.svg";
 
 const FavoritesList = () => {
