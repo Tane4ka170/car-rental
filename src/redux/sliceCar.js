@@ -75,11 +75,7 @@ const sliceCar = createSlice({
 
 export const carReducer = sliceCar.reducer;
 export const {
-  setCars,
-  setId,
   setLoading,
-  setError,
-  setAllCars,
   setFilter,
   setPriceFilter,
   setMileageFrom,

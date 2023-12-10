@@ -9,3 +9,4 @@ export const selectedPrice = (state) => state.cars.filter?.price || 0;
 export const selectedMileageFrom = (state) => state.cars.filter?.mileageFrom;
 export const selectedMileageTo = (state) => state.cars.filter?.mileageTo;
 export const selectsFilteredMake = (state) => state.cars.filter?.make;
+export const selectIsLoading = (state) => state.cars.isLoading
