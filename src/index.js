@@ -10,12 +10,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter basename="/car-rental">
         <App />
         <ToastContainer position="top-center" autoClose={3000} />
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>
 );

@@ -11,6 +11,7 @@ import {
   Backdrop,
   CarDescription,
   CarDetails,
+  CarImage,
   CarProperty,
   CloseButton,
   ModalContainer,
@@ -101,7 +102,7 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
               <CarLi key={`${selectedCar?.id}-${index}`}>
                 <CarImgContainer>
                   {selectedCar && (
-                    <img
+                    <CarImage
                       src={selectedCar?.img || noCar}
                       alt={selectedCar?.make}
                     />

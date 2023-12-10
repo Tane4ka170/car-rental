@@ -94,4 +94,8 @@ export const SearchButton = styled.button`
   border: none;
 
   color: white;
+     transition: background 0.3s ease;
+
+  &:hover {
+    background: #0B44CD;
 `;

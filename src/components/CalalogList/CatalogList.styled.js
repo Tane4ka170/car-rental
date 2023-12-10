@@ -100,4 +100,9 @@ export const LearnMore = styled.button`
   background: #3470ff;
   position: absolute;
   bottom: 0;
+   transition: background 0.3s ease;
+
+  &:hover {
+    background: #0B44CD;
+  }
 `;

@@ -12,7 +12,7 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCarThunk());
+    // dispatch(getCarThunk());
     dispatch(getAllCarThunk());
   }, [dispatch]);
 

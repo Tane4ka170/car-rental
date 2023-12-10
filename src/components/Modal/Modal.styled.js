@@ -39,6 +39,7 @@ export const CarImage = styled.img`
   margin-bottom: 10px;
   margin-top: 30px;
 `;
+
 export const SpanModal = styled.span`
   font-family: Montserrat;
   font-weight: 600;
@@ -161,6 +162,10 @@ export const RentalButton = styled.button`
 
   color: #fff;
   background: #3470ff;
+     transition: background 0.3s ease;
+
+  &:hover {
+    background: #0B44CD;
 `;
 
 export const CloseButton = styled.button`
@@ -168,7 +173,6 @@ export const CloseButton = styled.button`
   top: 6px;
   right: 6px;
   padding: 10px;
-  background: transparent;
+  background: none;
   border: none;
-  background: white;
 `;

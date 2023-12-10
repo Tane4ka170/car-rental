@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectAllCars,
@@ -16,18 +16,21 @@ const LoadMore = () => {
 
   const [page, setPage] = useState(1);
 
-  const handleLoadMore = () => {
+  useEffect(() => {
     dispatch(getCarThunk(page));
+  }, [dispatch, page]);
+
+  const handleLoadMore = () => {
     setPage(page + 1);
   };
 
-  const hideButton = !morePages || cars.length < 1 || allCars.length < 1;
-
   return (
     <LoadMoreContainer>
-      {!hideButton && (
+      {cars.length !== page * 12 ? (
+        ""
+      ) : (
         <LoadMoreButton type="button" onClick={handleLoadMore}>
-          Load More
+          Load more
         </LoadMoreButton>
       )}
     </LoadMoreContainer>
