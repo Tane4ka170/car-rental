@@ -66,5 +66,5 @@ export const SearchButton = styled.button`
      transition: background 0.3s ease;
 
   &:hover {
-    background: #0B44CD;
+    background: #0B44CD;}
 `;

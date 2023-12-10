@@ -53,7 +53,7 @@ const customStyles = {
   option: (provided, state) => ({
     ...provided,
     backgroundColor: "#ffffff",
-    color: "rgba(18, 20, 23, 0.20)",
+    color: state.isFocused ? "#000000" : "rgba(18, 20, 23, 0.20)",
   }),
 };
 
