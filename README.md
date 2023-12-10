@@ -1,9 +1,29 @@
 # car-rental
 
-Welcome to the "Car Rental" experience - your dedicated companion for hassle-free car rentals across Ukraine. Designed to enhance your convenience and provide unparalleled mobility during your time in the country.
+Enter Car Rental – the online platform designed for a car rental company serving Ukraine.
 
-Key Features 🚙 Diverse Car Selection: Choose from a wide array of cars that match your preferences and needs. Our extensive fleet spans various classes to meet all your requirements.
+## Features
 
-🛣️ Unrestricted Mobility: Say goodbye to dependence on public transport and savor the freedom to plan your routes at your leisure. Our service empowers you to explore the beauty of Ukraine in the comfort of your chosen vehicle.
+🔘 Home: Briefly introduces our service.
 
-🤜🤛 Effortless Rental Process: Navigate the rental journey seamlessly with our user-friendly interface, ensuring simplicity and convenience at every step.
+🔘 Catalog: Browse through our car catalog, apply filters for brand, maximum rental price, and mileage. Detailed information on available cars, specifications, and costs is provided. Users can add cars to their favorites on this page for later consideration and booking.
+
+🔘 Favorites: View a collection of cars added to favorites. Users can filter cars by make, mileage, and rental cost on this page.
+
+🔘 Filtering: Utilize our convenient filter to swiftly locate cars based on brand, rental price, and mileage. This streamlines the process of finding the ideal car that suits your requirements.
+
+🔘 Add to Favorites: Save cars of interest to favorites for thoughtful decision-making and easy ordering later.
+
+🔘 Phone Orders: Easily reach out to us directly through our website to place orders over the phone. We are always available to assist and provide guidance.
+
+## Dependencies
+
+▫️ HTML
+▫️ CSS
+▫️ JavaScript
+▫️ React/Redux Toolkit
+▫️ React Router Dom
+▫️ React Select
+▫️ Styled Components
+▫️ Axios
+▫️ React Toastify
