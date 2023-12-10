@@ -1,5 +1,14 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import backgroundImage from "../../images/backgroundImage.jpg";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const HeroSection = styled.section`
   display: flex;
@@ -11,6 +20,7 @@ export const HeroSection = styled.section`
   background: url(${backgroundImage}) no-repeat center center fixed;
   background-size: cover;
   height: 600px;
+  animation: ${fadeIn} 1s ease; /* Add a fade-in animation */
 
   &:before {
     content: "";

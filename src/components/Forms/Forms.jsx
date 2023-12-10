@@ -55,7 +55,7 @@ const customStyles = {
 };
 
 const Forms = () => {
-  const { control, register, handleSubmit } = useForm();
+  const { control, register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
@@ -63,6 +63,7 @@ const Forms = () => {
     dispatch(setPriceFilter(data.price?.value));
     dispatch(setMileageFrom(data.from));
     dispatch(setMileageTo(data.to));
+    reset();
   };
 
   const makePriceOptions = () => {

@@ -27,44 +27,13 @@ export const Label = styled.label`
   line-height: 18px;
 `;
 
-export const SelectBrand = styled.select`
-  width: 224px;
-`;
-
-export const Option = styled.option`
-  color: #121417;
-
-  font-family: Manrope;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
-`;
-
-export const OptionHide = styled.option`
-  display: inline-flex;
-  height: 272px;
-  padding: 14px 8px 14px 18px;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 112px;
-  flex-shrink: 0;
-  border-radius: 14px;
-  border: 1px solid rgba(18, 20, 23, 0.05);
-  background: #fff;
-  box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
-`;
-export const SelectPrice = styled.select`
-  width: 125px;
-`;
-
 export const InputDiv = styled.div`
   display: flex;
   column-gap: 2px;
 `;
 export const Input = styled.input`
   width: 160px;
-  padding: 14px 93px 14px 24px;
+  padding: 14px 75px 14px 24px;
   height: 64px;
   font-family: Manrope;
   font-size: 18px;

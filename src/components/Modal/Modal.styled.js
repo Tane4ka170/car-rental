@@ -1,4 +1,35 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const scaleIn = keyframes`
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+`;
+
+const hoverEffect = keyframes`
+  0% {
+    transform: scale(1);
+    color: #fff;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -24,6 +55,7 @@ export const ModalWindow = styled.div`
   padding-right: 40px;
   border: 1px solid #ccc;
   z-index: 7;
+  animation: ${fadeIn} 0.5s ease;
 `;
 
 export const ModalContainer = styled.div`
@@ -162,10 +194,13 @@ export const RentalButton = styled.button`
 
   color: #fff;
   background: #3470ff;
-     transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: ${scaleIn} 0.5s ease;
 
   &:hover {
-    background: #0B44CD;
+    background: #0b44cd;
+    transform: scale(1.1);
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -175,4 +210,10 @@ export const CloseButton = styled.button`
   padding: 10px;
   background: none;
   border: none;
+  animation: ${fadeIn} 0.5s ease;
+
+  &:hover {
+    cursor: pointer;
+    animation: ${hoverEffect} 0.5s ease;
+  }
 `;

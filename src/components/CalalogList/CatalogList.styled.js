@@ -1,4 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const scaleAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
 
 export const CarListContainer = styled.div`
   padding-left: 80px;
@@ -46,9 +58,14 @@ export const Like = styled.svg`
   width: 24px;
   height: 24px;
   cursor: pointer;
-
   fill: ${(props) => (props.$like ? "#3470ff" : "transparent")};
   stroke: ${(props) => (props.$like ? "#3470ff" : "white")};
+
+  &:active {
+    fill: #3470ff;
+    stroke: #3470ff;
+    animation: ${scaleAnimation} 0.1s ease;
+  }
 `;
 
 export const CarDivMainInfo = styled.div`
@@ -100,9 +117,9 @@ export const LearnMore = styled.button`
   background: #3470ff;
   position: absolute;
   bottom: 0;
-   transition: background 0.3s ease;
+  transition: background 0.3s ease;
 
   &:hover {
-    background: #0B44CD;
+    background: #0b44cd;
   }
 `;

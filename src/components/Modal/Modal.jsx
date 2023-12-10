@@ -70,6 +70,12 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
     }
   };
 
+  const formatMileage = (mileage) => {
+    const numberString = mileage.toString();
+    const formattedMileage = numberString.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return formattedMileage;
+  };
+
   const highlightRentalConditions = (text) => {
     const conditionsRegex = /(\s*\d+)/g;
     const parts = text.split(conditionsRegex);
@@ -173,7 +179,8 @@ const Modal = ({ selectedCar, index, beforeLastWord, lastWord, isClosed }) => {
                         </span>
                       </RentalConditionItem>
                       <RentalConditionItem>
-                        Mileage: <span>{selectedCar?.mileage}</span>
+                        Mileage:{" "}
+                        <span>{formatMileage(selectedCar?.mileage)}</span>
                       </RentalConditionItem>
                     </RentalConditionsDetails>
                   </RentalConditionsList>

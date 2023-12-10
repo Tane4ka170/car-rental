@@ -5,14 +5,13 @@ import Catalog from "../pages/Catalog/Catalog";
 import Favorites from "../pages/Favorites/Favorites";
 import Layout from "./Layout/Layout";
 import { useDispatch } from "react-redux";
-import { getAllCarThunk, getCarThunk } from "../redux/operations";
+import { getAllCarThunk } from "../redux/operations";
 import { fetchCatalog } from "../service/api";
 
 export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(getCarThunk());
     dispatch(getAllCarThunk());
   }, [dispatch]);
 
