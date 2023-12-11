@@ -20,7 +20,7 @@ export const HeroSection = styled.section`
   background: url(${backgroundImage}) no-repeat center center fixed;
   background-size: cover;
   height: 600px;
-  animation: ${fadeIn} 1s ease; /* Add a fade-in animation */
+  animation: ${fadeIn} 1s ease;
 
   &:before {
     content: "";

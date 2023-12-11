@@ -65,7 +65,7 @@ export const ModalContainer = styled.div`
 
 export const CarImage = styled.img`
   object-fit: cover;
-  width: 469px;
+  width: 461px;
   height: 248px;
   border-radius: 14px;
   margin-bottom: 10px;
